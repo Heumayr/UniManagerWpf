@@ -20,8 +20,11 @@ namespace UniManager.WpfApp.ViewModels
             {
                 teacher = value;
                 OnPropertyChanged(nameof(Teacher));
+                //OnPropertyChanged(nameof(FirstName));
             }
         }
+
+        //public string FirstName { get => Teacher.FirstName ; set => Teacher.FirstName = value; }
 
         private ICommand? saveCommand = null;
         private ICommand? closeCommand = null;

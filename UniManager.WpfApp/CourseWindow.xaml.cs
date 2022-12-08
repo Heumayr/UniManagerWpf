@@ -22,6 +22,7 @@ namespace UniManager.WpfApp
         public CourseWindow()
         {
             InitializeComponent();
+            ViewModel.CloseAction = () => Close();
         }
     }
 }

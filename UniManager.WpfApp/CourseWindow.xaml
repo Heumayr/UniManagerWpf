@@ -22,16 +22,15 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">Todo Teacher</Label>
-
+        <Label Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Path=Teacher.FullName}"></Label>
 
         <Label Grid.Row="1" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center">Designation</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" VerticalContentAlignment="Center" Text="{Binding Path=Course.Designation}"></TextBox>
 
 
         <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="5" MinWidth="60">Save</Button>
-            <Button Margin="5" MinWidth="60">Cancel</Button>
+            <Button Margin="5" MinWidth="60" Command="{Binding Path=SaveCommand}">Save</Button>
+            <Button Margin="5" MinWidth="60" Command="{Binding Path=CloseCommand}">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>

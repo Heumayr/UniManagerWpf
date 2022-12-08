@@ -25,7 +25,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
             <Label Margin="5">Search</Label>
-            <TextBox Margin="5" Width="300"></TextBox>
+            <TextBox Margin="5" Width="300" Text="{Binding Path=TeacherSearchText, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
@@ -44,19 +44,20 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
             <Label Margin="5">Search</Label>
-            <TextBox Margin="5" Width="300"></TextBox>
+            <TextBox Margin="5" Width="300" Text="{Binding Path=CourseSearchText, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <Button Margin="5" MinWidth="100" Background="Red">Delete Course</Button>
-            <Button Margin="5" MinWidth="100">Edit Course</Button>
-            <Button Margin="5" MinWidth="100">Add Course</Button>
+            <Button Margin="5" MinWidth="100" Background="Red" Command="{Binding Path=DeleteCourseCommand}">Delete Course</Button>
+            <Button Margin="5" MinWidth="100" Command="{Binding Path=EditCourseCommand}">Edit Course</Button>
+            <Button Margin="5" MinWidth="100" Command="{Binding Path=AddCourseCommand}">Add Course</Button>
         </StackPanel>
 
-        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"
+                  ItemsSource="{Binding Path=Courses}" SelectedItem="{Binding Path=SelectedCourse}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Course Id"></DataGridTextColumn>
-                <DataGridTextColumn Header="Designation"></DataGridTextColumn>
+                <DataGridTextColumn Header="Course Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Designation" Binding="{Binding Path=Designation}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
