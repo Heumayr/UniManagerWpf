@@ -13,6 +13,8 @@ namespace Repository.Logic.Models
 
         public string? Title { get; set; }
 
+        public string FullName => $"{(string.IsNullOrWhiteSpace(Title) ? "Prof." : Title)} {FirstName} {LastName}";
+
         public object Clone()
         {
             return new Teacher

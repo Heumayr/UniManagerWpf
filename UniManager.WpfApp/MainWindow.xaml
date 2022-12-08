@@ -4,9 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniManager.WpfApp"
+        xmlns:vm="clr-namespace:UniManager.WpfApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.DataContext>
+        <vm:MainViewModel x:Name="ViewModel"></vm:MainViewModel>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+            <Label Margin="5">Search</Label>
+            <TextBox Margin="5" Width="300"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Margin="5" MinWidth="100" Background="Red" Command="{Binding Path=DeleteTeacherDommand}">Delete Teacher</Button>
+            <Button Margin="5" MinWidth="100" Command="{Binding Path=EditTeacherCommand}">Edit Teacher</Button>
+            <Button Margin="5" MinWidth="100" Command="{Binding Path=AddTeacherCommand}">Add Teacher</Button>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"
+                  ItemsSource="{Binding Path=Teachers}" SelectedItem="{Binding Path=SelectedTeacher}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=FullName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+            <Label Margin="5">Search</Label>
+            <TextBox Margin="5" Width="300"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Margin="5" MinWidth="100" Background="Red">Delete Course</Button>
+            <Button Margin="5" MinWidth="100">Edit Course</Button>
+            <Button Margin="5" MinWidth="100">Add Course</Button>
+        </StackPanel>
+
+        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Course Id"></DataGridTextColumn>
+                <DataGridTextColumn Header="Designation"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
